@@ -1,12 +1,18 @@
+import os
+
 import importlib
 import inspect
 from pathlib import Path
 
 exclusions = ["__pycache__"]
 
+
+ROOT_DIR = Path(__file__).parent.parent
+TASK_PATH =  os.path.join(ROOT_DIR, os.getenv("TASKS_DIR", "tasks"))
+
 paths = [
     path
-    for path in Path("./tasks").iterdir()
+    for path in Path(TASK_PATH).iterdir()
     if path.is_dir() and path.name not in exclusions
 ]
 

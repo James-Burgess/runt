@@ -1,12 +1,8 @@
 from os import getenv
 
-from utils.api import app
-from utils.config import tasks
-from utils.task_manager import ViewCreator
-from dotenv import load_dotenv, find_dotenv
-
-
-load_dotenv(find_dotenv())
+from runt.config import tasks
+from runt.utils.server import app
+from runt.utils.task_manager import ViewCreator
 
 
 @app.route("/")
@@ -25,5 +21,5 @@ for task in tasks:
     app.add_url_rule(task["route"], task["name"], methods=["POST"])
     app.view_functions[task["name"]] = getattr(views, task["name"])
 
-
-app.run(host="0.0.0.0", port=getenv("PORT", 8080))
+def run():
+    app.run(host="0.0.0.0", port=getenv("PORT", 8080))
