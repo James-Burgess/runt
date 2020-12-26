@@ -12,8 +12,6 @@ RUN pip3 install -r requirements.txt
 
 COPY . /app
 
-ENV PORT=8081
-
 ENTRYPOINT [ "python3" ]
 
 CMD [ "main.py" ]
