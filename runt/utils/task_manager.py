@@ -1,6 +1,6 @@
 from flask import request
 
-from .api import auth
+from .server import auth
 
 
 class ViewCreator(object):
