@@ -1,3 +1,5 @@
+from os import getenv
+
 from utils.api import app
 from utils.config import tasks
 from utils.task_manager import ViewCreator
@@ -24,4 +26,4 @@ for task in tasks:
     app.view_functions[task["name"]] = getattr(views, task["name"])
 
 
-app.run(host="0.0.0.0", port=8080)
+app.run(host="0.0.0.0", port=getenv("PORT", 8080))
