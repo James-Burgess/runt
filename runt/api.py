@@ -1,8 +1,8 @@
 from os import getenv
 
 from runt.config import tasks
-from runt.utils.server import app
-from runt.utils.task_manager import ViewCreator
+from runt.server import app
+from runt.task_manager import ViewCreator
 
 
 @app.route("/")

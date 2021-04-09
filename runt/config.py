@@ -7,7 +7,7 @@ from pathlib import Path
 exclusions = ["__pycache__"]
 
 
-ROOT_DIR = Path(__file__).parent.parent
+ROOT_DIR = os.getcwd()
 TASK_PATH =  os.path.join(ROOT_DIR, os.getenv("TASKS_DIR", "tasks"))
 
 paths = [
